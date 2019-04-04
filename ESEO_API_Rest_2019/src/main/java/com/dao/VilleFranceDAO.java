@@ -30,7 +30,7 @@ public class VilleFranceDAO {
 			Connection connect = this.creerConnexion();
 			Statement stm = connect.createStatement();
 
-			ResultSet rset = stm.executeQuery("SELECT * FROM ville_france ORDER BY Nom_commune");
+			ResultSet rset = stm.executeQuery("SELECT * FROM ville_france");
 			while(rset.next()) {
 				VilleFranceDTO ville = new VilleFranceDTO();
 				ville.setCode_commune(rset.getString(1));
@@ -50,6 +50,20 @@ public class VilleFranceDAO {
 		}
 		return liste;
 	}
+	
+	
+	
+	public String listeToString(List<VilleFranceDTO> liste) {
+		String resultat = "";
+		for(VilleFranceDTO ville : liste) {
+			resultat = resultat+"["+ville.getCode_commune()+", "+ville.getNom()+", "+ville.getCode_postal()
+						+", "+ville.getLibelle_acheminement()+", "+ville.getLigne_5()+", "
+						+ville.getLatitude()+", "+ville.getLongitude()+"]<br>";
+		}
+		
+		return resultat;
+	}
+	
 	
 	public List<VilleFranceDTO> getBDDparCodePostal(String codeP) {
 		List<VilleFranceDTO> liste = new ArrayList<>();
