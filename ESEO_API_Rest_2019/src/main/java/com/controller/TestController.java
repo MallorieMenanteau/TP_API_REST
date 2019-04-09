@@ -1,10 +1,6 @@
 package com.controller;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import com.dao.VilleFranceDAO;
-import com.dto.VilleFranceDTO;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.dao.VilleFranceDAO;
+import com.dto.VilleFranceDTO;
 
 @RestController
 public class TestController {
@@ -29,7 +28,7 @@ public class TestController {
 	@CrossOrigin
 	@RequestMapping(value="/get",method=RequestMethod.GET)
 	@ResponseBody
-	public List<VilleFranceDTO> getbdd(@RequestParam(required=false,value="value") String value) {
+	public List<VilleFranceDTO> getbdd() {
 		VilleFranceDAO dao = new VilleFranceDAO();
 		List<VilleFranceDTO> liste = dao.getBDD();
 		 
