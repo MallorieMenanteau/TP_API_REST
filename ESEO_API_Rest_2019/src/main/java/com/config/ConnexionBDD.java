@@ -11,11 +11,9 @@ public class ConnexionBDD {
 	public Connection connexion() {
 		try {
 			DriverManager.registerDriver(new Driver());
-			Connection connect = DriverManager.getConnection("jdbc:mysql://localhost/maven?user=root");
-			return connect;
+			return DriverManager.getConnection("jdbc:mysql://localhost/maven?user=root");
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;

@@ -6,11 +6,11 @@ public class VilleFranceDTO  implements Serializable  {
 
 	private static final long serialVersionUID = 1L;
 	
-	String code_commune;
+	String codeCommune;
 	String nom;
-	String code_postal;
-	String libelle_acheminement;
-	String ligne_5;
+	String codePostal;
+	String libelleAcheminement;
+	String ligne5;
 	String latitude;
 	String longitude;
 	
@@ -18,23 +18,23 @@ public class VilleFranceDTO  implements Serializable  {
 		
 	}
 	
-	public VilleFranceDTO(String code_commune,String nom,String code_postal,String libelle_acheminement,String ligne_5,String latitude,String longitude){
-		this.code_commune = code_commune;
+	public VilleFranceDTO(String codeCommune,String nom,String codePostal,String libelleAcheminement,String ligne5,String latitude,String longitude){
+		this.codeCommune = codeCommune;
 		this.nom = nom;
-		this.code_postal = code_postal;
-		this.libelle_acheminement = libelle_acheminement;
-		this.ligne_5 = ligne_5;
+		this.codePostal = codePostal;
+		this.libelleAcheminement = libelleAcheminement;
+		this.ligne5 = ligne5;
 		this.latitude = latitude;
 		this.longitude = longitude;
 	}
 	
 	
-	public String getCode_commune() {
-		return code_commune;
+	public String getCodeCommune() {
+		return codeCommune;
 	}
 
-	public void setCode_commune(String code_commune) {
-		this.code_commune = code_commune;
+	public void setCodeCommune(String code_commune) {
+		this.codeCommune = code_commune;
 	}
 
 	public String getNom() {
@@ -45,28 +45,28 @@ public class VilleFranceDTO  implements Serializable  {
 		this.nom = nom;
 	}
 
-	public String getCode_postal() {
-		return code_postal;
+	public String getCodePostal() {
+		return codePostal;
 	}
 
-	public void setCode_postal(String code_postal) {
-		this.code_postal = code_postal;
+	public void setCodePostal(String codePostal) {
+		this.codePostal = codePostal;
 	}
 
-	public String getLibelle_acheminement() {
-		return libelle_acheminement;
+	public String getLibelleAcheminement() {
+		return libelleAcheminement;
 	}
 
-	public void setLibelle_acheminement(String libelle_acheminement) {
-		this.libelle_acheminement = libelle_acheminement;
+	public void setLibelleAcheminement(String libelleAcheminement) {
+		this.libelleAcheminement = libelleAcheminement;
 	}
 
-	public String getLigne_5() {
-		return ligne_5;
+	public String getLigne5() {
+		return ligne5;
 	}
 
-	public void setLigne_5(String ligne_5) {
-		this.ligne_5 = ligne_5;
+	public void setLigne5(String ligne5) {
+		this.ligne5 = ligne5;
 	}
 
 	public String getLatitude() {

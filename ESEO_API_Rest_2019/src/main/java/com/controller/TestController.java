@@ -54,23 +54,23 @@ public class TestController {
 		VilleFranceDAO dao = new VilleFranceDAO();
 		VilleFranceDTO dto = new VilleFranceDTO();
 		if(code_commune!=null) {
-			dto.setCode_commune(code_commune);
+			dto.setCodeCommune(code_commune);
 		}
 		if(nom!=null) {
 			dto.setNom(nom);
 		}
 		if(code_postal!=null) {
-			dto.setCode_postal(code_postal);
+			dto.setCodePostal(code_postal);
 		}
 		if(libelle_acheminement!=null) {
-			dto.setLibelle_acheminement(libelle_acheminement);
+			dto.setLibelleAcheminement(libelle_acheminement);
 		}else {
-			dto.setLibelle_acheminement("");
+			dto.setLibelleAcheminement("");
 		}
 		if(ligne5!=null) {
-			dto.setLigne_5(ligne5);
+			dto.setLigne5(ligne5);
 		}else {
-			dto.setLigne_5("");
+			dto.setLigne5("");
 		}
 		if(latitude!=null) {
 			dto.setLatitude(latitude);
@@ -91,22 +91,22 @@ public class TestController {
 	@CrossOrigin
 	@RequestMapping(value="/put",method=RequestMethod.PUT)
 	@ResponseBody
-	public void put(@RequestParam(required=true,value="codeC") String code_commune,
+	public void put(@RequestParam(required=true,value="codeC") String codeCommune,
 					@RequestParam(required=true,value="aChanger") int indiceParamAChanger,
 					@RequestParam(required=true,value="param") String param) {
 
 		VilleFranceDAO dao = new VilleFranceDAO();
-		dao.put(param,indiceParamAChanger,code_commune);	
+		dao.put(param,indiceParamAChanger,codeCommune);	
 	}
 	
 	@CrossOrigin
 	@RequestMapping(value="/delete",method=RequestMethod.DELETE)
 	@ResponseBody
-	public void delete(@RequestParam(required=true,value="codeC") String code_commune) {
+	public void delete(@RequestParam(required=true,value="codeC") String codeCommune) {
 
 		
 		VilleFranceDAO dao = new VilleFranceDAO();
-		dao.delete(code_commune);	
+		dao.delete(codeCommune);	
 	}
 	
 }
