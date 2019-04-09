@@ -125,7 +125,7 @@ public class VilleFranceDAO {
 		
 		try {
 			Connection connect = this.creerConnexion();
-			PreparedStatement preparedStatement = connect.prepareStatement(requetes.get(indiceParametreAChanger-2)); 
+			PreparedStatement preparedStatement = connect.prepareStatement(requetes.get(indiceParametreAChanger-1)); 
 
 			preparedStatement.setString(1,param); 
 			preparedStatement.setString(2,code_commune); 
