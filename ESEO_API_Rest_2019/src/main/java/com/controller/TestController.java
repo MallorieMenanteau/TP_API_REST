@@ -28,9 +28,7 @@ public class TestController {
 	@ResponseBody
 	public List<VilleFranceDTO> getbdd() {
 		VilleFranceDAO dao = new VilleFranceDAO();
-		List<VilleFranceDTO> liste = dao.getBDD();
-		 
-		return liste;
+		return dao.getBDD();
 	}
 	
 	@CrossOrigin
@@ -39,10 +37,7 @@ public class TestController {
 	public List<VilleFranceDTO> getbddByCodePostal(@RequestParam(required=false,value="codePostal") String value) {
 
 		VilleFranceDAO dao = new VilleFranceDAO();
-		List<VilleFranceDTO> liste = dao.getBDDparCodePostal(value);
-
-		 
-		return liste;
+		return dao.getBDDparCodePostal(value);
 	}
 	
 	@CrossOrigin
@@ -99,7 +94,7 @@ public class TestController {
 	public void put(@RequestParam(required=true,value="codeC") String code_commune,
 					@RequestParam(required=true,value="aChanger") int indiceParamAChanger,
 					@RequestParam(required=true,value="param") String param) {
-		
+
 		VilleFranceDAO dao = new VilleFranceDAO();
 		dao.put(param,indiceParamAChanger,code_commune);	
 	}
