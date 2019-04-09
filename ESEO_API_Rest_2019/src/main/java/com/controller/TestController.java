@@ -30,11 +30,8 @@ public class TestController {
 	@RequestMapping(value="/get",method=RequestMethod.GET)
 	@ResponseBody
 	public List<VilleFranceDTO> getbdd(@RequestParam(required=false,value="value") String value) {
-		System.out.println("Appel GET");
 		VilleFranceDAO dao = new VilleFranceDAO();
 		List<VilleFranceDTO> liste = dao.getBDD();
-		for (int i=0; i<liste.size();i++)
-			System.out.println(liste.get(i).getNom());
 		 
 		return liste;
 	}
@@ -43,32 +40,68 @@ public class TestController {
 	@RequestMapping(value="/getByCP",method=RequestMethod.GET)
 	@ResponseBody
 	public List<VilleFranceDTO> getbddByCodePostal(@RequestParam(required=false,value="codePostal") String value) {
-		System.out.println("Appel GET");
+
 		VilleFranceDAO dao = new VilleFranceDAO();
 		List<VilleFranceDTO> liste = dao.getBDDparCodePostal(value);
-		for (int i=0; i<liste.size();i++)
-			System.out.println(liste.get(i).getNom());
+
 		 
 		return liste;
 	}
 	
 	@CrossOrigin
-	@RequestMapping(value="/post1",method=RequestMethod.POST)
+	@RequestMapping(value="/post",method=RequestMethod.POST)
 	@ResponseBody
-	public String post(@RequestParam(required=false,value="codeC") String code_commune) {
+	public String post(@RequestParam(required=false,value="codeC") String code_commune,
+						@RequestParam(required=false,value="nom") String nom,
+						@RequestParam(required=false,value="codeP") String code_postal,
+						@RequestParam(required=false,value="lblA") String libelle_acheminement,
+						@RequestParam(required=false,value="ligne5") String ligne5,
+						@RequestParam(required=false,value="latitude") String latitude,
+						@RequestParam(required=false,value="longitude") String longitude) {
 
-		System.out.println("Appel POST");
+		VilleFranceDAO dao = new VilleFranceDAO();
+		VilleFranceDTO dto = new VilleFranceDTO();
+		if(code_commune!=null) {
+			dto.setCode_commune(code_commune);
+		}
+		if(nom!=null) {
+			dto.setNom(nom);
+		}
+		if(code_postal!=null) {
+			dto.setCode_postal(code_postal);
+		}
+		if(libelle_acheminement!=null) {
+			dto.setLibelle_acheminement(libelle_acheminement);
+		}else {
+			dto.setLibelle_acheminement("");
+		}
+		if(ligne5!=null) {
+			dto.setLigne_5(ligne5);
+		}else {
+			dto.setLigne_5("");
+		}
+		if(latitude!=null) {
+			dto.setLatitude(latitude);
+		}else {
+			dto.setLatitude("");
+		}
+		if(longitude!=null) {
+			dto.setLongitude(longitude);
+		}else {
+			dto.setLongitude("");
+		}
+		
+		
+		dao.post(dto);
 		return "fonctionne";
 	}
 	
 	@CrossOrigin
 	@RequestMapping(value="/put",method=RequestMethod.PUT)
 	@ResponseBody
-	public void post(@RequestParam(required=true,value="codeC") String code_commune,
+	public void put(@RequestParam(required=true,value="codeC") String code_commune,
 					@RequestParam(required=true,value="aChanger") int indiceParamAChanger,
 					@RequestParam(required=true,value="param") String param) {
-
-		System.out.println("Appel PUT");
 		
 		VilleFranceDAO dao = new VilleFranceDAO();
 		dao.put(param,indiceParamAChanger,code_commune);	
@@ -79,7 +112,6 @@ public class TestController {
 	@ResponseBody
 	public void delete(@RequestParam(required=true,value="codeC") String code_commune) {
 
-		System.out.println("Appel DELETE");
 		
 		VilleFranceDAO dao = new VilleFranceDAO();
 		dao.delete(code_commune);	

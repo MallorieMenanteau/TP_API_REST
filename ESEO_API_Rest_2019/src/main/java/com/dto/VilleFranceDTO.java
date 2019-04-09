@@ -1,7 +1,11 @@
 package com.dto;
 
-public class VilleFranceDTO {
+import java.io.Serializable;
 
+public class VilleFranceDTO  implements Serializable  {
+
+	private static final long serialVersionUID = 1L;
+	
 	String code_commune;
 	String nom;
 	String code_postal;
